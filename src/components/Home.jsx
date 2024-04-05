@@ -14,8 +14,13 @@ import Alert from './Alert';
 export default function Home() {
   const [text, setText] = useState('');
 
-  const alertText = "Recieved a suspicious email, fake invoice, or message? Don't reply, open links, download attachments, or call any listed phone numbers. We'll never ask for your password or financial information in an email or message. Forward suspicious messages to <Link to ='/'>phishing@paypal.com</Link> and then delete them."
-
+  const alertText = (
+    <>
+      Received a suspicious email, fake invoice, or message? Don't reply, open links, download attachments, or call any listed phone numbers. We'll never ask for your password or financial information in an email or message. Forward suspicious messages to{' '}
+      <Link to='/' className='font-medium text-blue-500'>phishing@paypal.com</Link>
+      {' '}and then delete them.
+    </>
+  );
   const optionsCard = options.map(option => {
     return (
       <OptionsCards key={option.id} img={option.img} title={option.title} desc={option.desc} />

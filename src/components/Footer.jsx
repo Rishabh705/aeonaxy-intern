@@ -1,7 +1,7 @@
 import React from 'react'
 import MaxWidthWrapper from './MaxWidthWrapper'
 import { Link } from 'react-router-dom'
-import { items1, items2,items3 } from '@/utils/utils'
+import { items1, items2, items3 } from '@/utils/utils'
 
 const links1 = items1.map((item, index) => {
     return (
@@ -20,8 +20,13 @@ const links2 = items2.map((item, index) => {
 const links3 = items3.map((item, index) => {
     return (
         <li key={index} className='mr-6'>
-            <Link to={item.link} className=' text-sm text-blue-900 font-bold hover:underline '>{item.text}</Link>
-        </li>
+            {
+                index === 0 ? <span className='text-sm text-slate-500 font-medium'>© 1999-2021</span>
+                    : (
+                        < Link to={item.link} className={` text-sm text-blue-900 hover:underline font-bold `}>{item.text}</Link>
+                    )
+            }
+        </li >
     )
 })
 export default function Footer() {
@@ -30,10 +35,10 @@ export default function Footer() {
             <footer>
                 <img src="\paypal-color.svg" alt="logo" className=' w-36 h-auto' />
                 <div className='mt-8 flex justify-between gap-4 flex-col md:flex-row'>
-                    <ul className='flex flex-wrap first: no-underline'>
+                    <ul className='flex flex-wrap'>
                         {links1}
                     </ul>
-                    <img src="\Flag_of_the_United_States.svg" alt="USA"  className='w-8 h-auto'/>
+                    <img src="\Flag_of_the_United_States.svg" alt="USA" className='w-8 h-auto' />
                 </div>
                 <hr className='mt-5' />
                 <div className='flex flex-col justify-between lg:flex-row'>
@@ -43,7 +48,7 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div className='mt-4'>
-                        <ul className='flex flex-wrap'>
+                        <ul className='flex flex-wrap first: text-slate-200'>
                             {links3}
                         </ul>
                     </div>
