@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
 import VerticalTabs from './VerticalTabs';
 import { Link } from 'react-router-dom'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 
 export default function Personal() {
   const [activeTab, setActiveTab] = useState(1);
@@ -335,23 +341,47 @@ export default function Personal() {
   };
 
   return (
-    <div className="grid grid-cols-3 lg:grid-cols-4">
-      <VerticalTabs tabList={personalHelp} onTabClick={handleTabClick} />
-      <div className="px-10 col-span-2">
-        {personalHelp.map((tab) =>
-          tab.id === activeTab ? (
-            <div key={tab.id}>
-              <h3 className='text-2xl mb-2 font-semibold'>{tab.title}</h3>
-              {tab.array.map((item) => (
-                <div key={item.text} className='text-[#2573de] font-medium mb-3'>
-                  <Link to={item.link}>{item.text}</Link>
-                </div>
-              ))}
-            </div>
-          ) : null
-        )}
+    <div className='flex flex-wrap'>
+      <div className="flex flex-col md:flex-row flex-1">
+
+        <Accordion type="single" collapsible className="w-full px-5 md:hidden">
+          {
+            personalHelp.map((tab) =>
+              (
+                <AccordionItem value={tab.id} key={tab.id}>
+                  <AccordionTrigger>{tab.title}</AccordionTrigger>
+                  <AccordionContent>
+                    {tab.array.map((item) => (
+                      <div key={item.text} className='text-[#2573de] font-medium mb-3'>
+                        <Link to={item.link}>{item.text}</Link>
+                      </div>
+                    ))}
+                  </AccordionContent>
+                </AccordionItem>
+              )
+            )
+          }
+
+        </Accordion>
+
+        <VerticalTabs tabList={personalHelp} onTabClick={handleTabClick} className='hidden' />
+
+        <div className="hidden md:block md:px-8 py-2 basis-full md:basis-2/3 lg:basis-full">
+          {personalHelp.map((tab) =>
+            tab.id === activeTab ? (
+              <div key={tab.id}>
+                <h3 className='text-2xl mb-2 font-semibold'>{tab.title}</h3>
+                {tab.array.map((item) => (
+                  <div key={item.text} className='text-[#2573de] font-medium mb-3'>
+                    <Link to={item.link}>{item.text}</Link>
+                  </div>
+                ))}
+              </div>
+            ) : null
+          )}
+        </div>
       </div>
-      <div className='col-start-1 col-end-4 lg:col-start-4 lg:col-end-4 h-fit w-fit py-10 px-5 bg-slate-100 rounded-2xl shadow-md flex flex-col justify-center gap-6'>
+      <div className='basis-full lg:basis-1/4 h-fit px-3 py-10 bg-slate-100 rounded-2xl shadow-md flex flex-col justify-center gap-6'>
         <h1 className='font-bold text-center'>Get customized help with your account and access your message center.</h1>
         <Link to='/' className='text-lg m-auto  text-blue-900 font-medium border-2 border-blue-800 rounded-full px-8 py-2 hover:bg-blue-800 hover:text-white'>
           Log In

@@ -1,6 +1,7 @@
+import { cn } from '@/lib/utils';
 import React, { useState } from 'react';
 
-const VerticalTabs = ({ tabList, onTabClick }) => {
+const VerticalTabs = ({ tabList, onTabClick, className }) => {
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (id) => {
@@ -9,7 +10,7 @@ const VerticalTabs = ({ tabList, onTabClick }) => {
   };
 
   return (
-    <div>
+    <div className={cn(`md:block w-2/5`, className)}>
       {tabList.map((tab) => (
         <div
           key={tab.id}

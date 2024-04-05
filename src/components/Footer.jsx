@@ -26,10 +26,10 @@ const links3 = items3.map((item, index) => {
 })
 export default function Footer() {
     return (
-        <MaxWidthWrapper className='mt-48 mb-20'>
+        <MaxWidthWrapper className='mt-48 mb-20 px-5'>
             <footer>
                 <img src="\paypal-color.svg" alt="logo" className=' w-36 h-auto' />
-                <div className='mt-8 flex justify-between'>
+                <div className='mt-8 flex justify-between gap-4 flex-col md:flex-row'>
                     <ul className='flex flex-wrap first: no-underline'>
                         {links1}
                     </ul>

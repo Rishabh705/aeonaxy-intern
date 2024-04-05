@@ -39,18 +39,22 @@ export default function Home() {
           <SearchBox text={text} setText={setText} />
         </div>
         <Alert text={alertText} />
-        <div className='pt-5 flex gap-6 justify-center flex-wrap'>
+        <div className='pt-5 flex gap-4 justify-center flex-wrap md:px-5'>
           {optionsCard}
         </div>
         <div className='pt-5'>
           <Tabs defaultValue="personal" className="w-full">
-            <div className='overflow-x-auto w-full flex justify-center'>
-              <TabsList className="flex justify-center w-fit  rounded-full text-blue-800">
-                <TabsTrigger value="personal" className="rounded-full px-8 ">Personal Help</TabsTrigger>
-                <TabsTrigger value="business" className="rounded-full px-8 ">Buisiness Help</TabsTrigger>
-                <TabsTrigger value="technical" className="rounded-full px-8 ">Technical Help</TabsTrigger>
-              </TabsList>
+            <div className='flex justify-center'>
+              <div className='overflow-auto max-w-fit'>
+                <TabsList className="rounded-full text-blue-800">
+                  {/* Use flex-start to ensure tabs start from the left */}
+                  <TabsTrigger value="personal" className="rounded-full px-8">Personal Help</TabsTrigger>
+                  <TabsTrigger value="business" className="rounded-full px-8">Business Help</TabsTrigger>
+                  <TabsTrigger value="technical" className="rounded-full px-8">Technical Help</TabsTrigger>
+                </TabsList>
+              </div>
             </div>
+
             <div className='w-full mt-6'>
               <TabsContent value="personal"><Personal /></TabsContent>
               <TabsContent value="business"><Business /></TabsContent>

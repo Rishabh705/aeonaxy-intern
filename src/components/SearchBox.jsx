@@ -6,7 +6,7 @@ const SearchBox = ({ text, setText }) => {
     }
 
     return (
-        <div className='mt-2 w-4/6'>
+        <div className='mt-2 w-5/6 md:4/6'>
             <div className="relative flex items-center pl-3 rounded-full border border-gray-400 font-semibold  w-full">
                 <FiSearch/>
                 <input
