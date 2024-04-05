@@ -76,7 +76,7 @@ export default function Home() {
         <div className='flex flex-col mt-12 py-5 px-5 lg:px-20 lg:flex-row gap-6 items-center justify-between bg-slate-100'>
           <div className='w-full lg:w-1/2 space-y-2'>
             <h3 className='text-lg font-semibold text-center lg:text-left'>How are we doing?</h3>
-            <p className=' text-center lg:text-left'>Help improve the <strong>Paypal Help Center experience</strong> with some quick feedback</p>
+            <p className=' text-center lg:text-left'>Help improve the <strong>Paypal Help Center experience</strong> with some quick feedback.</p>
           </div>
           <Link to='/' className='text-lg font-medium bg-blue-800 text-white rounded-full px-8 py-2 lg:px-10 lg:py-3'>
             Take the survey
